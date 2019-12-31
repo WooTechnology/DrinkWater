@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textSize="35sp"
         android:text="@string/mainTitle" />
 
     <TextView
@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="25sp"
         tools:text="December 29, 2019" />
 
     <LinearLayout
@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:textSize="20sp"
+            android:textSize="25sp"
             android:layout_marginTop="20dp"
             android:maxLines="1"
             android:text="1" />
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:textSize="20sp"
+            android:textSize="25sp"
             tools:text="Ounces" />
 
     </LinearLayout>
@@ -57,7 +57,7 @@
 
         <ImageButton
             android:id="@+id/addWaterButton"
-            android:src="@drawable/addcirclelarge"
+            android:src="@drawable/addlarge"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:padding="10dp"
@@ -65,7 +65,7 @@
 
         <ImageButton
             android:id="@+id/subtractWaterButton"
-            android:src="@drawable/removecirclelarge"
+            android:src="@drawable/removelarge"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:padding="10dp"
