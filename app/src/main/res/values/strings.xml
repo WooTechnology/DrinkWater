@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WooTechDrinkWater</string>
+    <string name="mainTitle">How Much I Drank Today</string>
 </resources>
