@@ -1,45 +1,51 @@
 package com.crayonwriter.wootechdrinkwater
 
 import android.content.ClipData
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class WaterViewModel: ViewModel() {
+class WaterViewModel : ViewModel() {
 
-    val glasses: MutableLiveData<Int> by lazy {
-        MutableLiveData<Int>().also {
-            loadGlasses()
-        }
-    }
+    private val DEFAULT_GLASSES = 0
+
+    private val glasses: MutableLiveData<Int> = MutableLiveData()
 
     fun getGlasses(): LiveData<Int> {
         return glasses
     }
 
     private fun loadGlasses() {
-        //fetch glasses
-
+        //Whenever we have a database, replace it with actual value
     }
 
-//Method to decrement the number of glasses when the - button is pressed
-    fun decrementGlasses(glasses: Int): Int {
+    /**Method to decrement the number of glasses when the - button is pressed
+     *  If the value of glasses is null, use the default glasses value to determine
+     *  if the number is valid.
+     */
+    fun decrementGlasses() {
         var isValidNumber = false
-        var numberOfGlasses: Int = 1
-            if (numberOfGlasses > 0) {
-                isValidNumber = true
-                numberOfGlasses--
+        var currentNumberOfGlasses: Int = glasses.value ?: DEFAULT_GLASSES
+        if (currentNumberOfGlasses > 0) {
+            isValidNumber = true
+        }
+        
+        if (isValidNumber) {
+            currentNumberOfGlasses--
         } else {
-                println("You can't have negative glasses!")
-            }
-return numberOfGlasses
+            Log.d(WaterViewModel::class.java.simpleName, "Can't be negative")
+        }
+        glasses.postValue(currentNumberOfGlasses)
     }
 
-    //Method to increment the number of glasses when the + button is pressed
-    fun incrementGlasses(glasses: Int): Int {
-        var numberOfGlasses: Int = 1
-        numberOfGlasses++
-        return numberOfGlasses
+    /**
+     *     Method to increment the number of glasses when the + button is pressed
+     *     If the new number of glasses is null, return the default glasses value
+     */
+    fun incrementGlasses() {
+        val newNumberOfGlasses: Int = glasses.value?.plus(1) ?: DEFAULT_GLASSES
+        glasses.postValue(newNumberOfGlasses)
     }
 
 }
