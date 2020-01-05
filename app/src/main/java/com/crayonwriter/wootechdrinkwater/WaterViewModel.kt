@@ -1,6 +1,5 @@
 package com.crayonwriter.wootechdrinkwater
 
-import android.content.ClipData
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -10,7 +9,7 @@ class WaterViewModel : ViewModel() {
 
     private val DEFAULT_GLASSES = 0
 
-    private val glasses: MutableLiveData<Int> = MutableLiveData()
+    val glasses: MutableLiveData<Int> = MutableLiveData()
 
     fun getGlasses(): LiveData<Int> {
         return glasses
@@ -30,7 +29,7 @@ class WaterViewModel : ViewModel() {
         if (currentNumberOfGlasses > 0) {
             isValidNumber = true
         }
-        
+
         if (isValidNumber) {
             currentNumberOfGlasses--
         } else {
