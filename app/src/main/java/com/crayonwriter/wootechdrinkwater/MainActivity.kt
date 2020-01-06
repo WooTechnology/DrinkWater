@@ -23,13 +23,13 @@ class MainActivity : AppCompatActivity() {
         // Create the observer which updates the UI.
         val nameObserver = Observer<Int> { newNumber ->
             // Update the UI, in this case, an EditText view.
-            numberOfGlasses.setText(newNumber)
+            numberOfGlasses.setText(newNumber.toString())
         }
 
         // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
 
         model.glasses.observe(this, nameObserver)
-
+        model.loadGlasses()
         addWaterButton.setOnClickListener {
             model.incrementGlasses()
         }
