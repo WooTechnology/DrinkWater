@@ -17,6 +17,7 @@ class WaterViewModel : ViewModel() {
 
     private fun loadGlasses() {
         //Whenever we have a database, replace it with actual value
+        glasses.postValue(DEFAULT_GLASSES)
     }
 
     /**Method to decrement the number of glasses when the - button is pressed
