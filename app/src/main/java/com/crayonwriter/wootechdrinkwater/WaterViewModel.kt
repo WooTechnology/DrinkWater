@@ -9,7 +9,7 @@ class WaterViewModel : ViewModel() {
 
     private val DEFAULT_GLASSES = 0
 
-    val glasses: MutableLiveData<Int> = MutableLiveData()
+    private val glasses: MutableLiveData<Int> = MutableLiveData()
 
     fun getGlasses(): LiveData<Int> {
         return glasses
