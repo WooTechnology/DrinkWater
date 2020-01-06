@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         //NOTE: Can the numberOfGlasses be change to an Int?
         val nameObserver = Observer<Int> { newNumber ->
             // Update the UI, in this case, a TextView.
-            numberOfGlasses.text = newNumber
+            numberOfGlasses.setText(newNumber)
         }
 
         // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.

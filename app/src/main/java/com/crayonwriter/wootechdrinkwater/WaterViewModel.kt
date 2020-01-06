@@ -15,7 +15,7 @@ class WaterViewModel : ViewModel() {
         return glasses
     }
 
-    private fun loadGlasses() {
+    fun loadGlasses() {
         //Whenever we have a database, replace it with actual value
         glasses.postValue(DEFAULT_GLASSES)
     }
