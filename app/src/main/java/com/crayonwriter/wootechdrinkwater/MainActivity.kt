@@ -21,18 +21,15 @@ class MainActivity : AppCompatActivity() {
         model = ViewModelProviders.of(this).get(WaterViewModel::class.java)
 
         // Create the observer which updates the UI.
-        //NOTE: Can the numberOfGlasses be change to an Int?
         val nameObserver = Observer<Int> { newNumber ->
-            // Update the UI, in this case, a TextView.
+            // Update the UI, in this case, an EditText view.
             numberOfGlasses.setText(newNumber)
         }
 
         // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
-        //NOTE: I had to change glasses to public in the viewmodel or else I got an
-        //error that it couldn't be reached.
+
         model.glasses.observe(this, nameObserver)
 
-        //I couldn't get the edittext to be Int. This section needs work.
         addWaterButton.setOnClickListener {
             model.incrementGlasses()
         }
