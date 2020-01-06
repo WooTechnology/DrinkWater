@@ -34,13 +34,11 @@ class MainActivity : AppCompatActivity() {
 
         //I couldn't get the edittext to be Int. This section needs work.
         addWaterButton.setOnClickListener {
-            val newNumberOfGlasses = numberOfGlasses
-            model.glasses.setValue(newNumberOfGlasses)
+            model.incrementGlasses()
         }
 
         subtractWaterButton.setOnClickListener {
-            val newNumberOfGlasses = numberOfGlasses
-            model.glasses.setValue(newNumberOfGlasses)
+            model.decrementGlasses()
         }
     }
 
