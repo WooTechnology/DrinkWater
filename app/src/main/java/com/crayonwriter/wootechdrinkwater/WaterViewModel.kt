@@ -9,13 +9,15 @@ class WaterViewModel : ViewModel() {
 
     private val DEFAULT_GLASSES = 0
 
-    private val glasses: MutableLiveData<Int> = MutableLiveData()
+    private val glasses: MutableLiveData<Int> = MutableLiveData<Int>().also {
+        loadGlasses()
+    }
 
     fun getGlasses(): LiveData<Int> {
         return glasses
     }
 
-    fun loadGlasses() {
+    private fun loadGlasses() {
         //Whenever we have a database, replace it with actual value
         glasses.postValue(DEFAULT_GLASSES)
     }

@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity() {
 
         // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
 
-        model.loadGlasses()
         model.getGlasses().observe(this, nameObserver)
 
         addWaterButton.setOnClickListener {
