@@ -1,4 +1,5 @@
 package com.crayonwriter.wootechdrinkwater
 
-class WaterEntries {
+data class WaterEntries(val waterGlasses: Int) {
 }
+
