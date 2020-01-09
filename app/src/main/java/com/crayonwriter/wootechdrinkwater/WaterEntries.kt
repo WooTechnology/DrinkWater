@@ -8,9 +8,11 @@ import androidx.room.PrimaryKey
 data class WaterEntries(
     @PrimaryKey
     @ColumnInfo(name = "date")
-    val date: String = drinkDate.toString(),
+    val date: String = (R.id.date).toString(),
+    @ColumnInfo(name = "dayOfWeek")
+    val dayOfWeek: String = (R.id.dayOfWeek).toString(),
     @ColumnInfo(name = "water_glasses")
-    val waterGlasses: String
+    val waterGlasses: Int
 )
 
 
