@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 
 class WaterViewModel : ViewModel() {
 
+    //TODO: Can the value for DEFAULT_GLASSES be whatever is in the EditText field?
     private val DEFAULT_GLASSES = 0
 
     private val glasses: MutableLiveData<Int> = MutableLiveData(DEFAULT_GLASSES)
