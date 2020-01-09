@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class waterEntries(
+data class WaterEntries(
     @PrimaryKey
     @ColumnInfo(name = "date")
     val date: String = drinkDate.toString(),
