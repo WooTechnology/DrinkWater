@@ -9,8 +9,3 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): WaterDao
 }
 
-//TODO: Use correct context and create database instance in correct location
-val db = Room.databaseBuilder(
-    applicationContext,
-    AppDatabase::class.java, "database-name"
-).build()

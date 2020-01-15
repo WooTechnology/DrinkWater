@@ -7,6 +7,7 @@ import android.widget.ImageButton
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.room.Room
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -19,6 +20,11 @@ class MainActivity : AppCompatActivity() {
 
         // Get the ViewModel.
         model = ViewModelProviders.of(this).get(WaterViewModel::class.java)
+
+        val db = Room.databaseBuilder(
+            applicationContext,
+            AppDatabase::class.java, "database-name"
+        ).build()
 
         // Create the observer which updates the UI.
         val nameObserver = Observer<Int> { newNumber ->
