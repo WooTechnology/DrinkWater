@@ -7,8 +7,8 @@ import androidx.room.PrimaryKey
 @Entity
 data class WaterEntries(
     @PrimaryKey val uid: Int,
-    @ColumnInfo(name = "date") val date: String = (R.id.date).toString(),
-    @ColumnInfo(name = "dayOfWeek") val dayOfWeek: String = (R.id.dayOfWeek).toString(),
+    @ColumnInfo(name = "date") val date: String,
+    @ColumnInfo(name = "dayOfWeek") val dayOfWeek: String,
     @ColumnInfo(name = "glasses") val glasses: String
 )
 
