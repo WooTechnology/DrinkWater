@@ -3,8 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:gravity="center">
+    android:layout_marginTop="25dp"
+    android:gravity="top">
 
     <TextView
         android:id="@+id/textView"
@@ -28,23 +30,7 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/numberOfGlasses"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:textSize="25sp"
-            android:layout_marginTop="20dp"
-            android:maxLines="1"
-            tools:text="1" />
 
-        <TextView
-            android:id="@+id/unitsOfMeasure"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textSize="25sp"
-            tools:text="Glass(es)" />
 
     </LinearLayout>
 
@@ -55,13 +41,6 @@
         android:layout_marginTop="24dp"
         android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/addWaterButton"
-            android:src="@drawable/addlarge"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:padding="10dp"
-            android:layout_margin="20dp"/>
 
         <ImageButton
             android:id="@+id/subtractWaterButton"
@@ -71,5 +50,50 @@
             android:padding="10dp"
             android:layout_margin="20dp"/>
 
+        <TextView
+            android:id="@+id/numberOfGlasses"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textSize="25sp"
+            android:maxLines="1"
+            tools:text="1" />
+
+        <TextView
+            android:id="@+id/unitsOfMeasure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            tools:text="Glass(es)" />
+
+        <ImageButton
+            android:id="@+id/addWaterButton"
+            android:src="@drawable/addlarge"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:padding="10dp"
+            android:layout_margin="20dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="25dp">
+    <TextView
+        android:id="@+id/titleFiveDay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="My 5-Day History"
+        android:textAlignment="center" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listItem="@layout/fivedays_rowitem"
+        tools:itemCount="5"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"/>
     </LinearLayout>
 </LinearLayout>
