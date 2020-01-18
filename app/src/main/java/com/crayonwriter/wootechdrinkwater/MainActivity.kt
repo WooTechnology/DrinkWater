@@ -18,14 +18,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Get the ViewModel.
+        // Get the ViewModel
         model = ViewModelProviders.of(this).get(WaterViewModel::class.java)
 
+        //Database instance created
         val db = Room.databaseBuilder(
             applicationContext,
             AppDatabase::class.java, "database-name"
         ).build()
-
+        
         // Create the observer which updates the UI.
         val nameObserver = Observer<Int> { newNumber ->
             // Update the UI, in this case, an EditText view.
