@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_marginTop="25dp"
-    android:gravity="top">
+    android:gravity="top"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/mainTitle"
         android:textAlignment="center"
-        android:textSize="35sp"
-        android:text="@string/mainTitle" />
+        android:textSize="35sp" />
 
     <TextView
         android:id="@+id/dateToday"
@@ -27,36 +27,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginTop="24dp"
+        android:gravity="center"
         android:orientation="horizontal">
-
 
         <ImageButton
             android:id="@+id/subtractWaterButton"
-            android:src="@drawable/removelarge"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_margin="20dp"
             android:padding="10dp"
-            android:layout_margin="20dp"/>
+            android:src="@drawable/removelarge" />
 
         <TextView
             android:id="@+id/numberOfGlasses"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:textSize="25sp"
             android:maxLines="1"
+            android:textSize="25sp"
             tools:text="1" />
 
         <TextView
@@ -68,32 +57,33 @@
 
         <ImageButton
             android:id="@+id/addWaterButton"
-            android:src="@drawable/addlarge"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_margin="20dp"
             android:padding="10dp"
-            android:layout_margin="20dp"/>
+            android:src="@drawable/addlarge" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="25dp">
-    <TextView
-        android:id="@+id/titleFiveDay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="My 5-Day History"
-        android:textAlignment="center" />
+        android:layout_marginTop="25dp"
+        android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:listItem="@layout/fivedays_rowitem"
-        tools:itemCount="5"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:orientation="vertical"/>
+        <TextView
+            android:id="@+id/titleFiveDay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            tools:text="My 5-Day History" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="5"
+            tools:listItem="@layout/fivedays_rowitem" />
     </LinearLayout>
 </LinearLayout>
