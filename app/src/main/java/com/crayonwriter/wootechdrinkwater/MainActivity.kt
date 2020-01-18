@@ -28,25 +28,32 @@ class MainActivity : AppCompatActivity() {
         ).build()
 
         model.setDb(db)
-        
-        // Create the observer which updates the UI.
-        val nameObserver = Observer<Int> { newNumber ->
-            // Update the UI, in this case, an EditText view.
-            numberOfGlasses.setText(newNumber.toString())
+
+        // Create the observer which updates the UI
+        val nameObserver = Observer<WaterEntries> { waterModel ->
+            if (waterModel == null) {
+                numberOfGlasses.setText("0")
+            } else {
+                numberOfGlasses.setText(waterModel.glasses)
+            }
         }
 
+        val weekObserver = Observer<List<WaterEntries>> {
+
+        }
         // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
 
         model.getGlasses().observe(this, nameObserver)
 
+        model.getWeekGlasses().observe(this, weekObserver)
+
         addWaterButton.setOnClickListener {
-            model.incrementGlasses()
+            model.incrementGlasses(numberOfGlasses.text.toString().toInt())
         }
 
         subtractWaterButton.setOnClickListener {
-            model.decrementGlasses()
+            model.decrementGlasses(numberOfGlasses.text.toString().toInt())
         }
     }
-
 
 }
