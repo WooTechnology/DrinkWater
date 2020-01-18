@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
             applicationContext,
             AppDatabase::class.java, "database-name"
         ).build()
+
+        model.setDb(db)
         
         // Create the observer which updates the UI.
         val nameObserver = Observer<Int> { newNumber ->
