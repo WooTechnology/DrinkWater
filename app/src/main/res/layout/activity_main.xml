@@ -79,6 +79,7 @@
             tools:text="My 5-Day History" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/weekOfData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"

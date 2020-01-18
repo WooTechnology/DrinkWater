@@ -38,7 +38,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        val weekObserver = Observer<List<WaterEntries>> {
+        //TODO: Finish this implementation after the recyclerView/adapter is completed
+        val weekObserver = Observer<List<WaterEntries>> {weekListModel ->
+            if (weekListModel == null) {
+            }
 
         }
         // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
