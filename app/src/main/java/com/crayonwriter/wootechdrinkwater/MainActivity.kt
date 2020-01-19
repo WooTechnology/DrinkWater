@@ -8,20 +8,30 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var model: WaterViewModel
-    var waterAdapter: waterRecyclerViewAdapter? = null
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var viewManager: RecyclerView.LayoutManager
+    private lateinit var viewAdapter: RecyclerView.Adapter<*>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = waterAdapter
+
+        viewManager = LinearLayoutManager(this)
+        viewAdapter = MyAdapter(myDataset)
+
+        recyclerView = findViewById(R.id.listWeekOfData).apply {
+            setHasFixedSize(true)
+            layoutManager = viewManager
+            adapter = viewAdapter
+        }
 
         // Get the ViewModel
         model = ViewModelProviders.of(this).get(WaterViewModel::class.java)
@@ -45,7 +55,11 @@ class MainActivity : AppCompatActivity() {
 
         //TODO: Finish this implementation after the recyclerView/adapter is completed
         val weekObserver = Observer<List<WaterEntries>> {weekListModel ->
-
+            if(recyclerView.Adapter == null) {
+                weekListModel = //The title and the text "No Data Yet"
+            } else {
+                //get data that was changed from observing the LiveData
+            }
         }
         // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
 
