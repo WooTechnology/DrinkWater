@@ -7,16 +7,21 @@ import android.widget.ImageButton
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var model: WaterViewModel
+    var waterAdapter: waterRecyclerViewAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = waterAdapter
 
         // Get the ViewModel
         model = ViewModelProviders.of(this).get(WaterViewModel::class.java)
@@ -40,8 +45,6 @@ class MainActivity : AppCompatActivity() {
 
         //TODO: Finish this implementation after the recyclerView/adapter is completed
         val weekObserver = Observer<List<WaterEntries>> {weekListModel ->
-            if (weekListModel == null) {
-            }
 
         }
         // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
