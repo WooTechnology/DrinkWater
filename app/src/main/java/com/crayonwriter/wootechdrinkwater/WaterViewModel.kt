@@ -36,6 +36,7 @@ class WaterViewModel : ViewModel() {
             } else {
                 glasses - 1
             }
+
         val waterEntries = WaterEntries(
             date = getCurrentData(),
             dayOfWeek = "",

@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         //TODO: Finish this implementation after the recyclerView/adapter is completed
         val weekObserver = Observer<List<WaterEntries>> {weekListModel ->
             if(recyclerView.Adapter == null) {
-                weekListModel = //The title and the text "No Data Yet"
+                weekListModel.get()//The title and the text "No Data Yet"
             } else {
                 //get data that was changed from observing the LiveData
             }
