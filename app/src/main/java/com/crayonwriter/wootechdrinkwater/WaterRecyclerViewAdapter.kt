@@ -8,8 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fivedays_rowitem.view.*
 
-class WaterRecyclerViewAdapter:
-    RecyclerView.Adapter<WaterRecyclerViewAdapter.MyViewHolder>() {
+class WaterRecyclerViewAdapter: RecyclerView.Adapter<WaterRecyclerViewAdapter.MyViewHolder>() {
 
     private val waterModelList = mutableListOf<WaterEntries>()
 
@@ -22,8 +21,10 @@ class WaterRecyclerViewAdapter:
     }
 
     // Create new views (invoked by the layout manager)
-    override fun onCreateViewHolder(parent: ViewGroup,
-                                    viewType: Int): WaterRecyclerViewAdapter.MyViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): WaterRecyclerViewAdapter.MyViewHolder {
         // create a new view
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.fivedays_rowitem, parent, false)
@@ -37,17 +38,22 @@ class WaterRecyclerViewAdapter:
 
         holder.numberOfGlassesTextView.text = waterEntry.glasses
         holder.dateTextView.text = waterEntry.date
-//        holder.dayOfTheWeekTextView.text = getDayOfWeekFromDate(waterEntry.date)
+        holder.dayOfTheWeekTextView.text = getDayOfWeekFromDate(waterEntry.date)
     }
 
-    // TODO Return the size of your dataset (invoked by the layout manager)
+    //Return the size of the dataset (invoked by the layout manager)
     override fun getItemCount() = waterModelList.size
-}
+
+    private fun getDayOfWeekFromDate(date: String): String {
+        //TODO write logic to get day of week
+        return ""
+    }
 
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val numberOfGlassesTextView = view.number_of_glasses
         val dateTextView = view.date
-//        val dayOfTheWeekTextView = view.dayOfWeek
+        val dayOfTheWeekTextView = view.dayOfWeek
 
 
+    }
 }
