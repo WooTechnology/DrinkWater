@@ -39,7 +39,6 @@ class WaterViewModel : ViewModel() {
 
         val waterEntries = WaterEntries(
             date = getCurrentData(),
-            dayOfWeek = "",
             glasses = newNumberOfGlasses.toString()
         )
         InsertGlassAsyncTask().execute(waterEntries)
@@ -53,7 +52,6 @@ class WaterViewModel : ViewModel() {
         val newNumberOfGlasses: Int = glasses.plus(1)
         val waterEntries = WaterEntries(
             date = getCurrentData(),
-            dayOfWeek = "",
             glasses = newNumberOfGlasses.toString()
         )
         InsertGlassAsyncTask().execute(waterEntries)
