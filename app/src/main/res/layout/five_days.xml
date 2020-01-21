@@ -6,18 +6,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-<!--    <TextView-->
-<!--        android:id="@+id/titleFiveDay"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        tools:text="My 5-Day History"-->
-<!--        android:textAlignment="center" />-->
+    <TextView
+        android:id="@+id/titleFiveDay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My 5-Day History"
+        android:textAlignment="center" />
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        tools:listItem="@layout/fivedays_rowitem"-->
-<!--        tools:itemCount="5"-->
-<!--        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
-<!--        android:orientation="vertical"/>-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listItem="@layout/fivedays_rowitem"
+        tools:itemCount="5"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"/>
 </LinearLayout>

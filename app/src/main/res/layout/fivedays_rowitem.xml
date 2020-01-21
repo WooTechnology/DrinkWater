@@ -15,16 +15,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:textSize="20sp"
-            tools:text="2" />
-
-        <TextView
-            android:id="@+id/units"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
             android:padding="4dp"
-            android:textSize="20sp"
-            tools:text="Ounces" />
+            tools:text="2 Glass(es)" />
 
     </LinearLayout>
 
