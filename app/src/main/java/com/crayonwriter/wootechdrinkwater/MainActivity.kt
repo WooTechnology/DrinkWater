@@ -17,31 +17,29 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var model: WaterViewModel
     private lateinit var recyclerView: RecyclerView
-    private lateinit var viewManager: RecyclerView.LayoutManager
-    private lateinit var viewAdapter: RecyclerView.Adapter<*>
+    private lateinit var layoutManager: LinearLayoutManager
+    private lateinit var glassesAdapter: WaterRecyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        recyclerView = listWeekOfData
+        //This makes the list of dates show in reverse order
+        layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true)
+        glassesAdapter = WaterRecyclerViewAdapter()
 
-        viewManager = LinearLayoutManager(this)
-        viewAdapter = MyAdapter(myDataset)
-
-        recyclerView = findViewById(R.id.listWeekOfData).apply {
-            setHasFixedSize(true)
-            layoutManager = viewManager
-            adapter = viewAdapter
-        }
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = glassesAdapter
 
         // Get the ViewModel
         model = ViewModelProviders.of(this).get(WaterViewModel::class.java)
 
-        //Database instance created
+        //Database instance created and migration taken into account
         val db = Room.databaseBuilder(
             applicationContext,
             AppDatabase::class.java, "database-name"
-        ).build()
+        ).fallbackToDestructiveMigration().build()
 
         model.setDb(db)
 
