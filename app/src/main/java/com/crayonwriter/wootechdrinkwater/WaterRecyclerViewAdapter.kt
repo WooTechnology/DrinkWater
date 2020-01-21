@@ -8,8 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 
 class WaterRecyclerViewAdapter:
     RecyclerView.Adapter<WaterRecyclerViewAdapter.MyViewHolder>() {
-        class MyViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
 
+    private val waterModelList = mutableListOf<WaterEntries>()
+
+    fun setWaterList(waterList: List<WaterEntries>) {
+        waterModelList.clear()
+        waterModelList.addAll(waterList)
+
+        //Refresh the list and show the latest items
+        notifyDataSetChanged()
+    }
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(parent: ViewGroup,
                                     viewType: Int): WaterRecyclerViewAdapter.MyViewHolder {

@@ -3,6 +3,7 @@ package com.crayonwriter.wootechdrinkwater
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
+import android.view.View
 import android.widget.ImageButton
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
@@ -53,12 +54,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        //TODO: Finish this implementation after the recyclerView/adapter is completed
-        val weekObserver = Observer<List<WaterEntries>> {weekListModel ->
-            if(recyclerView.Adapter == null) {
-                weekListModel.get()//The title and the text "No Data Yet"
+        val weekObserver = Observer<List<WaterEntries>> { weekListModel ->
+            if (weekListModel.isEmpty()) {
+                recyclerView.visibility = View.INVISIBLE
             } else {
-                //get data that was changed from observing the LiveData
+                glassesAdapter.setWaterList(weekListModel)
             }
         }
         // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
